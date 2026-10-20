@@ -51,6 +51,8 @@ public class TestRun {
     private Instant completedAt;
 
     // SLA metrics captured after test
+    // Preserve the existing Flyway column name across Hibernate naming-strategy changes.
+    @Column(name = "p95latency_ms")
     private Long p95LatencyMs;
     private Double errorRatePercent;
     private Integer peakHeapUsagePercent;

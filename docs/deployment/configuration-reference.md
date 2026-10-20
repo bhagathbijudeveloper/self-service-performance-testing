@@ -19,6 +19,7 @@ This guide describes implemented settings, not future provider integrations.
 | Approved network reachability | `runnerCell.egress.allowedCidrs`, company CNI/firewall/DNS | No |
 | A specific test's users/rate/duration/checks | UI / YAML / REST canonical specification | New immutable version |
 | Additional Spring settings | `applicationConfig` | No; rolls control plane |
+| Control-plane virtual threads | `spring.threads.virtual.enabled` / `SPRING_THREADS_VIRTUAL_ENABLED` | No; restart |
 | New engine, storage API, corporate SSO provider | Java adapter + composition + tests | Yes |
 
 Do not duplicate a setting across multiple layers. Explicit Spring environment properties take
@@ -107,6 +108,15 @@ For a directly run Java application use an external Spring configuration file or
 environment binding, for example `SPRING_DATASOURCE_URL`, `SERVICE_TOKEN_FILE`, and
 `PLATFORM_ORCHESTRATION_ARTIFACTS_BUCKET`. Follow the same production profile, Secrets and provider
 rules as the chart. Copy the composition settings rather than running the legacy Dockerfile.
+
+## Java runtime
+
+The Java application requires JDK 25 and Spring Boot 4.1.1. Virtual threads are enabled by default;
+for an operator override in Helm, use `applicationConfig.spring.threads.virtual.enabled: false`
+(as nested YAML), or set `SPRING_THREADS_VIRTUAL_ENABLED=false` when launching Java directly.
+`spring.main.keep-alive=true` keeps scheduler-only processes alive because virtual threads are
+daemon threads. Queue quotas, database pool limits and runner resources remain independent.
+See [Java runtime and upgrade notes](../operations/java-runtime.md).
 
 ## Credentials, certificates and changes
 

@@ -37,7 +37,7 @@
 <polyline points="680,260 680,295" class="line" marker-end="url(#arrow)"/>
 <polyline points="680,400 680,435" class="line" marker-end="url(#arrow)"/>
 <polyline points="680,540 680,575" class="line" marker-end="url(#arrow)"/>
-<text x="680" y="725" class="small" text-anchor="middle">Java 17 target · JDK 21 verified build</text>
+<text x="680" y="725" class="small" text-anchor="middle">JDK 25 · Spring Boot 4.1.1</text>
 <polyline points="330,230 390,230" class="line" marker-end="url(#arrow)"/>
 <polyline points="330,430 360,430 360,250 390,250" class="line" marker-end="url(#arrow)"/>
 <rect x="1030" y="100" width="340" height="600" rx="16" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" stroke-dasharray="7 5"/>

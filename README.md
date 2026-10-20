@@ -83,10 +83,15 @@ explains where those implementations belong.
 
 ## Try it locally
 
-Prerequisites: JDK 21 (the application targets Java 17), Maven, Node.js 22.22.2 or newer, Python 3,
+Prerequisites: JDK 25, Maven, Node.js 22.22.2 or newer, Python 3,
 and Docker for the PostgreSQL/object-storage integration tests. For real API load, install Apache
 JMeter with its Custom Thread Groups plugin; the launcher checks/installs the plugin. Browser
 execution uses the pinned Playwright runtime and Chromium, installed by the launcher.
+
+The control plane uses Spring Boot 4.1.1 and enables virtual threads by default. Set
+`SPRING_THREADS_VIRTUAL_ENABLED=false` to opt out. This helps blocking API/storage calls share OS
+threads; it does not increase admitted runs, browser slots or JMeter load-generator capacity.
+See [Java runtime and upgrade notes](docs/operations/java-runtime.md) for compatibility and tuning.
 
 ```bash
 git clone https://github.com/bhagathbijudeveloper/self-service-performance-testing.git
@@ -180,7 +185,8 @@ it does not implement a human SSO login. Corporate OIDC remains an extension beh
 ## Build and verify
 
 ```bash
-mvn clean verify                        # JAVA_HOME must be set; Docker must be running
+mvn clean verify                        # JAVA_HOME must select JDK 25; Docker must be running
+mvn -f demo-service/pom.xml clean verify
 npm --prefix platform-ui ci
 npm --prefix platform-ui test
 npm --prefix platform-ui run build

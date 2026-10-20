@@ -113,7 +113,7 @@ docker run -d --rm --name perf-minio --network perf-e2e \
   -e MINIO_ROOT_USER=minio -e MINIO_ROOT_PASSWORD=minio123 -p 19000:9000 \
   perfplatform/minio-test:2024-11-07-1 server /data
 docker run -d --rm --name perf-demo --network perf-e2e \
-  -v "$PWD/demo-service/target:/app:ro" eclipse-temurin:17-jre-jammy \
+  -v "$PWD/demo-service/target:/app:ro" eclipse-temurin:25-jre-jammy@sha256:e0d8c47eccd7ec82d635542dfcd1f2b1293add6bdd7ffbeb650f8ec1b1335425 \
   java -jar /app/demo-service-1.0.0.jar
 
 export AWS_ACCESS_KEY_ID=minio AWS_SECRET_ACCESS_KEY=minio123 AWS_DEFAULT_REGION=us-east-1

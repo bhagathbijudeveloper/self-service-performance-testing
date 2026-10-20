@@ -11,7 +11,7 @@ It uses PostgreSQL and runs Flyway migrations on startup (`demo` schema).
 ## Prerequisites
 
 - Docker (for PostgreSQL)
-- Java 21
+- JDK 25
 - Maven
 
 ## 1. Start the local database
@@ -33,7 +33,7 @@ This starts PostgreSQL on `localhost:5432` with the defaults already wired for t
 From the repository root:
 
 ```sh
-JAVA_HOME=$(/usr/libexec/java_home -v 21) mvn -f demo-service/pom.xml spring-boot:run
+JAVA_HOME=$(/usr/libexec/java_home -v 25) mvn -f demo-service/pom.xml spring-boot:run
 ```
 
 The service starts on:
@@ -80,7 +80,7 @@ Example:
 DEMO_DB_URL=jdbc:postgresql://localhost:5432/perfplatform \
 DEMO_DB_USER=perf \
 DEMO_DB_PASSWORD=perf \
-JAVA_HOME=$(/usr/libexec/java_home -v 21) mvn -f demo-service/pom.xml spring-boot:run
+JAVA_HOME=$(/usr/libexec/java_home -v 25) mvn -f demo-service/pom.xml spring-boot:run
 ```
 
 ## Stop services
