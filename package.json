@@ -1,0 +1,28 @@
+{
+  "name": "self-service-performance-testing",
+  "version": "1.0.0",
+  "description": "A **self-service, config-driven performance testing platform** that eliminates the bottleneck of a central performance engineering team. Any team can run load, endurance, and spike tests by filling in a single YAML config file \u2014 no JMeter expertise required.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhagathbijudeveloper/self-service-performance-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bhagathbijudeveloper/self-service-performance-testing/issues"
+  },
+  "homepage": "https://github.com/bhagathbijudeveloper/self-service-performance-testing#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}

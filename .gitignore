@@ -1,0 +1,50 @@
+# ─────────────────────────────────────────────────────────
+#  Performance Testing Platform — .gitignore
+# ─────────────────────────────────────────────────────────
+
+# IDE & Editor Config
+.vscode/
+.idea/
+*.iml
+*.iws
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Java & Maven Outputs
+**/target/
+# The domain also has Java packages named target; these are source, not Maven output.
+!**/src/**/target/
+!**/src/**/target/**
+*.class
+*.jar
+*.war
+*.ear
+
+# Node & JS Tooling
+**/node_modules/
+**/dist/
+.npm
+.next/
+
+# Logs & Temporary Files
+*.log
+**/jmeter.log
+**/perf-platform/
+demo-service.zip
+perf-report.html
+
+# Local Environment / Secrets
+.env
+.env.local
+
+# Local run state from scripts/start-platform.sh
+.local/
+
+# Python verification helper bytecode
+**/__pycache__/
+
+# Local browser test output
+test-results/
