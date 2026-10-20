@@ -85,7 +85,7 @@ def placement():
     d.box(420, 575, 520, 105, 'Infrastructure adapters', ['Spring Data JPA / Flyway', 'S3 SDK / STS · fabric8 Kubernetes client'])
     for y in [260, 400, 540]:
         d.arrow([(680, y), (680, y + 35)])
-    d.text(680, 725, 'Java 17 target · JDK 21 verified build', 'small', 'middle')
+    d.text(680, 725, 'JDK 25 · Spring Boot 4.1.1', 'small', 'middle')
     d.arrow([(330, 230), (390, 230)])
     d.arrow([(330, 430), (360, 430), (360, 250), (390, 250)])
     d.cluster(1030, 100, 340, 600, 'Separate runner Pods')

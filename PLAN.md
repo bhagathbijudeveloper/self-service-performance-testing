@@ -9,3 +9,8 @@ survive control-plane restarts. Failed runners must stop before admission capaci
 
 Near-term work: operator installation acceptance and controlled calibration for five simultaneous
 team runs. Follow with reviewed provider adapters and consumer usability improvements.
+
+The implemented runtime baseline is JDK 25 / Spring Boot 4.1.1. Virtual-thread HTTP dispatch and
+its opt-out have embedded-server regression coverage; legacy storage names, canonical definitions and
+runner contracts are preserved. Roll out new application images through normal review and
+operator acceptance. Measure concurrency benefits separately from compatibility verification.

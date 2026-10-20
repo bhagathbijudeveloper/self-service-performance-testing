@@ -5,6 +5,20 @@ spring:
   application:
     name: performance-testing-platform
 
+  # HTTP requests and Boot-managed asynchronous work can wait on I/O without one OS thread each.
+  # Admission quotas and isolated material-load runners remain independent of this setting.
+  threads:
+    virtual:
+      enabled: ${SPRING_THREADS_VIRTUAL_ENABLED:true}
+  main:
+    # Virtual threads are daemon threads; keep scheduler-only deployments alive too.
+    keep-alive: true
+
+  # Keep the existing REST/document representation while Jackson 3 migration is separate work.
+  http:
+    converters:
+      preferred-json-mapper: jackson2
+
   # Database — H2 for local dev, override with PostgreSQL env vars in prod
   datasource:
     url: ${DB_URL:jdbc:h2:mem:perfplatform;DB_CLOSE_DELAY=-1}

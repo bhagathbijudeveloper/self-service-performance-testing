@@ -13,6 +13,7 @@
 | Use an AI editor / pipeline | [CLI and portable skill](user-guide/ai-editors.md) |
 | Use the REST API | [API examples](api/v2-examples.md) |
 | Diagnose deployment problems | [Troubleshooting](deployment/troubleshooting.md) |
+| Configure Java / virtual threads or upgrade the framework | [Java runtime](operations/java-runtime.md) |
 | Add engines / storage / identity | [Extension guide](development/extending.md) |
 | Reproduce the disposable kind proof | [Standalone verification](deployment/standalone.md#reproduce-the-disposable-local-browser-proof) |
 

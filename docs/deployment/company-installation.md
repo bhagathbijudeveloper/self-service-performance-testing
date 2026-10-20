@@ -36,7 +36,7 @@ git rev-parse HEAD
 ```
 
 Use your fork when you intend to change code. Record the chosen commit in your release manifest.
-Use JDK 21 to build the Java 17 target, Maven, Node.js 22.22.2, Python 3, Docker, Helm and kubectl.
+Use JDK 25 for the control plane and demo service, Maven, Node.js 22.22.2, Python 3, Docker, Helm and kubectl.
 Confirm `JAVA_HOME` points to your JDK. Docker must be running for authoritative PostgreSQL/S3
 integration tests. No hosted AI key is required. Follow your company process for approved versions
 and dependency mirrors; avoid upgrading the application baseline as part of first deployment.

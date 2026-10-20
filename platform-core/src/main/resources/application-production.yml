@@ -1,7 +1,7 @@
 # Production refuses local execution, filesystem artifacts and development identity in Java too.
 spring:
   autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+    exclude: org.springframework.boot.security.autoconfigure.UserDetailsServiceAutoConfiguration
   jpa:
     open-in-view: false
   h2:

@@ -19,7 +19,7 @@ docker compose -f docker/docker-compose.yml up -d postgres
 Start the service in a second terminal. Flyway creates the `demo.students` table automatically:
 
 ```sh
-JAVA_HOME=$(/usr/libexec/java_home -v 21) mvn -f demo-service/pom.xml spring-boot:run
+JAVA_HOME=$(/usr/libexec/java_home -v 25) mvn -f demo-service/pom.xml spring-boot:run
 ```
 
 Start the React client in a third terminal:

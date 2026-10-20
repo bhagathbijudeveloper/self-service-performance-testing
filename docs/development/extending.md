@@ -1,8 +1,8 @@
 # Extend or rebrand the platform
 
 Fork the repository and retain its module boundaries. The application is a modular monolith,
-not a collection of separately deployed microservices. Java 17 is the compilation target; Java 21
-is supported for building. The current `PerformanceTest` API-version namespace is historical and
+not a collection of separately deployed microservices. JDK 25 is required for building and running
+the Java application; its framework baseline is Spring Boot 4.1.1. The current `PerformanceTest` API-version namespace is historical and
 remains stable for compatibility.
 
 ## UI and requirements

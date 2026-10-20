@@ -35,8 +35,8 @@ brew install kind
 ```bash
 kind create cluster --name perf-e2e --wait 120s
 
-JAVA_HOME=$(/usr/libexec/java_home -v 21) mvn -DskipTests package
-JAVA_HOME=$(/usr/libexec/java_home -v 21) mvn -f demo-service/pom.xml -DskipTests package
+JAVA_HOME=$(/usr/libexec/java_home -v 25) mvn -DskipTests package
+JAVA_HOME=$(/usr/libexec/java_home -v 25) mvn -f demo-service/pom.xml -DskipTests package
 
 docker build -t perfplatform/jmeter-runner:5.6.3-3 runner-images/jmeter-runner
 docker build -t perfplatform/platform-core:1.0.0 platform-core

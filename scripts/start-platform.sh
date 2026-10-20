@@ -57,19 +57,25 @@ warn()  { printf '    %s!%s %s\n' "$YELLOW" "$RESET" "$1"; }
 fail()  { printf '    %sx%s %s\n' "$RED" "$RESET" "$1" >&2; }
 
 # ── Java ──────────────────────────────────────────────────────────────────
-# JAVA_HOME is not set in the shell profile on this machine, and Maven fails immediately without
-# it. The project targets Java 17 and builds on 21 with --release 17; do not "fix" that.
+# Prefer the supported JDK without changing the user's global Java installation.
 if [ -z "${JAVA_HOME:-}" ]; then
   if [ -x /usr/libexec/java_home ]; then
-    JAVA_HOME="$(/usr/libexec/java_home -v 21 2>/dev/null || /usr/libexec/java_home 2>/dev/null || true)"
+    JAVA_HOME="$(/usr/libexec/java_home -v 25 2>/dev/null || true)"
+  elif command -v java >/dev/null 2>&1; then
+    JAVA_HOME="$(java -XshowSettings:properties -version 2>&1 | sed -n 's/^[[:space:]]*java.home = //p')"
   fi
 fi
 if [ -z "${JAVA_HOME:-}" ] || [ ! -x "$JAVA_HOME/bin/java" ]; then
-  fail "No JDK found. Install one (JDK 21 is what this project is built with) or set JAVA_HOME."
+  fail "JDK 25 is required. Install JDK 25 and set JAVA_HOME to its installation directory."
   exit 1
 fi
 export JAVA_HOME
 JAVA="$JAVA_HOME/bin/java"
+JAVA_FEATURE="$("$JAVA" -XshowSettings:properties -version 2>&1 | sed -n 's/^[[:space:]]*java.specification.version = //p')"
+if [ "$JAVA_FEATURE" != "25" ]; then
+  fail "JDK 25 is required; JAVA_HOME selects Java $JAVA_FEATURE. Set JAVA_HOME to JDK 25."
+  exit 1
+fi
 
 # ── Stopping ──────────────────────────────────────────────────────────────
 free_port() {

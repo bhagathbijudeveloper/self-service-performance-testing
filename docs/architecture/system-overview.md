@@ -88,7 +88,8 @@ flowchart TB
 
 </details>
 
-Java source targets Java 17; the verified build toolchain uses JDK 21. Build the complete console/API
+The control plane and demo service compile and run on JDK 25 with Spring Boot 4.1.1. The JMeter
+runner retains its separate pinned Java 17 runtime; Playwright uses Node.js. Build the complete console/API
 image from `docker/Dockerfile.control-plane`. Each runner has a separate Dockerfile and version.
 Kubernetes, PostgreSQL, storage, registry, TLS, DNS and network enforcement belong to the operator.
 No external AI service is required to run the platform or its portable editor skill.
